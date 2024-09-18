@@ -2,6 +2,8 @@
 
 set -eu
 
+export DEBIAN_FRONTEND=noninteractive
+
 Setup_Depedencies() {
     printf "\n---> INSTALL DEPENDENCIES <---\n"
     sudo apt update
@@ -21,7 +23,7 @@ Setup_Docker() {
 
     sudo apt-key fingerprint 0EBFCD88
 
-    sudo add-apt-repository \
+    sudo add-apt-repository -y \
        "deb [arch=amd64] https://download.docker.com/linux/debian \
        $(lsb_release -cs) \
        stable"
